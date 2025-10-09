@@ -99,7 +99,7 @@ The application will be available at: **http://localhost:8090**
 curl -X POST "http://localhost:8090/example/v1/hotels" \
   -H "Content-Type: application/json" \
   -d '{
-    "city": "Mod Hasharon",
+    "city": "Hod Hasharon",
     "description": "Automation Hotel",
     "name": "Nir Great hotel",
     "rating": 1
@@ -110,7 +110,7 @@ curl -X POST "http://localhost:8090/example/v1/hotels" \
 ```json
 {
   "id": 1,
-  "city": "Mod Hasharon",
+  "city": "Hod Hasharon",
   "description": "Automation Hotel",
   "name": "Nir Great hotel",
   "rating": 1
