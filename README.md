@@ -23,7 +23,7 @@ REST API application for managing hotels, built with FastAPI.
 
 ## 🛠 Technologies
 
-- **Python 3.8+**
+- **Python 3.13.7**
 - **FastAPI** - modern web framework
 - **Uvicorn** - ASGI server
 - **Pydantic** - data validation
