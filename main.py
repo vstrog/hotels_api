@@ -183,36 +183,3 @@ async def delete_hotel(id: int, db: Session = Depends(get_db)):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="localhost", port=8090)
-@app.put("/example/v1/hotels/{id}", response_model=Hotel, tags=["Hotel Controller"],
-         summary="Update a hotel resource.")
-async def update_hotel(id: int, hotel_update: HotelUpdate):
-    """Update a hotel resource."""
-    if id not in hotels_db:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Hotel with id {id} not found"
-        )
-    
-    existing_hotel = hotels_db[id]
-    update_data = hotel_update.dict(exclude_unset=True)
-    
-    updated_hotel = existing_hotel.copy(update=update_data)
-    hotels_db[id] = updated_hotel
-    
-    return updated_hotel
-
-@app.delete("/example/v1/hotels/{id}", status_code=status.HTTP_204_NO_CONTENT,
-            tags=["Hotel Controller"], summary="Delete a hotel resource.")
-async def delete_hotel(id: int):
-    """Delete a hotel resource."""
-    if id not in hotels_db:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Hotel with id {id} not found"
-        )
-    
-    del hotels_db[id]
-    return None
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=8090)
